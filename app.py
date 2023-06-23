@@ -11,9 +11,9 @@ CORS(app)
 def helloWorld():
   return "Hello, cross-origin-world!"
 
-@app.route("/felix")
-def helloFelix():
-  return felix.methodefelix()
+@app.route("/felix/<landcode>")
+def helloFelix(landcode):
+  return felix.methodefelix(landcode)
 
 @app.route("/ronald")
 def helloRonald():
