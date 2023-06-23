@@ -4,7 +4,7 @@ from json import loads, dumps
 def methodefelix(landcode):
   bestand = pandas.read_csv("unemploymentpercountry.csv")
   for i, country in bestand.iterrows():
-    if(country["Country Code"]==  landcode):
+    if(country["CountryCode"]==  landcode):
       pass
     else:
       bestand = bestand.drop(i)
