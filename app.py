@@ -19,6 +19,7 @@ def helloFelix(landcode):
 def helloRonald():
   return ronald.methoderonald()
 
-@app.route("/jefta")
-def helloJefta():
-  return jefta.methodejefta()
+@app.route("/jefta/<jobid>")
+# jobid=int(jobid)
+def helloJefta(jobid):
+  return jefta.methodejefta(jobid)
