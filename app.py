@@ -1,15 +1,15 @@
 from flask import Flask, render_template
 from flask_cors import CORS
 from flask import Response
-import felix
+# import felix
 import jefta
-import ronald
+# import ronald
 import io
 from matplotlib.figure import Figure
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 # import requests
-load_dotenv()
+# load_dotenv()
 
 
 
@@ -20,9 +20,9 @@ CORS(app)
 def helloWorld():
   return "Hello, cross-origin-world!"
 
-@app.route("/felix/<landcode>")
-def helloFelix(landcode):
-  return felix.methodefelix(landcode)
+# @app.route("/felix/<landcode>")
+# def helloFelix(landcode):
+#   return felix.methodefelix(landcode)
 
 @app.route("/ronald")
 def helloRonald():
