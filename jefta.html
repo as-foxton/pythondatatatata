@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+   
+
+        <!-- // function verwerkgegevens(data){
+        //     for(var x=0;x<data.length;x++){
+        //         document.getElementById("dediv").innerHTML += `<h1>${data[x].OBS_VALUE}</h1>`
+        //     }
+        // }
+        // var jsonString = '[{"x": 1, "y": 2}, {"x": 3, "y": 4}, {"x": 5, "y": 6}]';
+// var jsonArray = JSON.parse(jsonString);
+
+                // .then( d=> verwerkgegevens(d))
+        // }
+
+        // fetch('/api/data')
+//   .then(function(response) {
+    // return response.json();
+//   })
+ 
+    
+
+//
+
+-->
+<!-- // 
+<script>
+     -->
+
+     <!-- //     function letsgo() {
+//     fetchImage();
+//   }
+
+//   function fetchImage() {
+
+//       const response = await fetch("http://127.0.0.1:5000/jefta");
+//       const blob = await response.blob();
+//       const img = document.createElement("img");
+//       img.src = URL.createObjectURL(blob);
+//       document.body.appendChild(img);
+//     }
+
+//     fetchImage();
+//   </script> -->
+
+
+</head>
+<body>
+  <select id="countryCodeInput">
+    <option value="UK">UK</option>
+    <option value="DE">DE</option>
+    <option value="FR">FR</option>
+    <option value="FR">NL</option>
+  </select>
+
+    <!-- Add more options as needed -->
+  <!-- <input type="text" id="countryCodeInput" placeholder="Enter country code"> -->
+    <button onclick="letsgo()">Klik hier</button>
+    <!-- <div id="dediv">.</div> -->
+
+    <div id="myChart"></div>
+
+    <!-- <script>
+        function letsgo() {
+          fetchImage();
+        }
+      
+        function fetchImage() {
+          const response = await fetch("http://127.0.0.1:5000/jefta");
+          const blob = await response.blob();
+          const img = document.createElement("img");
+          img.src = URL.createObjectURL(blob);
+          document.body.appendChild(img);
+        }
+      
+        // letsgo(); // This will now work
+      </script> -->
+      <!-- <script>
+        // Assuming you have the JSON array stored in the 'jsonArray' variable.
+
+var xValues = jsonArray.map(function(item) {
+  return item.x;
+});
+
+var yValues = jsonArray.map(function(item) {
+  return item.y;
+});
+
+var trace = {
+  x: xValues,
+  y: yValues,
+  type: 'scatter'
+};
+
+var data = [trace];
+
+var layout = {
+  title: 'My Graph',
+  xaxis: {
+    title: 'X-axis'
+  },
+  yaxis: {
+    title: 'Y-axis'
+  }
+};
+
+Plotly.newPlot('myChart', data, layout);
+
+    </script> -->
+   
+  <script>
+
+
+
+
+    // });
+// }
+</script>
+<script>
+    function letsgo() {
+      var countryCode = document.getElementById("countryCodeInput").value;
+      fetch("http://127.0.0.1:5000/jefta/" + countryCode)        
+        .then(r => r.json())
+        .then(d => verwerkgegevens(d));
+    }
+  
+    function verwerkgegevens(data) {
+      var OBS_VALUES = [];
+      var TIME_PERIODS = [];
+  
+      for (var x = 0; x < data.length; x++) {
+        var OBS_VALUE = data[x].OBS_VALUE;
+        var TIME_PERIOD = data[x].TIME_PERIOD;
+  
+        OBS_VALUES.push(OBS_VALUE);
+        TIME_PERIODS.push(TIME_PERIOD);
+      }
+  
+      var trace = {
+        x: TIME_PERIODS,
+        y: OBS_VALUES,
+        type: 'scatter'
+      };
+  
+      var plotData = [trace];
+  
+      var layout = {
+        title: 'OBS_VALUE vs TIME_PERIOD',
+        xaxis: {
+          title: 'TIME_PERIOD'
+        },
+        yaxis: {
+          title: 'OBS_VALUE'
+        },
+        width: 800,  // Specify the desired width of the graph in pixels
+  height: 500
+      };
+  
+      Plotly.newPlot('myChart', plotData, layout);
+  
+      console.log(OBS_VALUES);
+      console.log(TIME_PERIODS);
+    }
+  </script>
+  
+</body>
+
+</html>
+
+
+
+<!-- <script>
+    function letsgo(){
+        fetch("http://127.0.0.1:5000/jefta")
+            .then( r=>r.json())
+            .then( d=> verwerkgegevens(d))
+    }
+    function verwerkgegevens(data){
+        for(var x=0;x<data.length;x++){
+            document.getElementById("dediv").innerHTML += `<h1>${data[x].JobID}</h1>`
+        }
+    }
+</script>
+</head>
+<body>
+<button onclick="letsgo()">Klik hier</button>
+<div id="dediv">a</div>
+</body>
+</html> -->
