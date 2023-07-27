@@ -50,11 +50,12 @@ def filter_data():
   df_filtered = pd.read_csv("df_filtered.csv")
   countries = request.args.get('countries')  # Get the countries as a JSON string
   sex = request.args.get('sex')
+  age=request.args.get('age')
   countries_list = loads(countries) if countries else []
   # country="DE"
   # sex="F"
   # print(type(country))
-  df_filtered2 = df_filtered[(df_filtered['geo'].isin(countries_list)) & (df_filtered['sex'] == sex)]
+  df_filtered2 = df_filtered[(df_filtered['geo'].isin(countries_list)) & (df_filtered['sex'] == sex) & (df_filtered['age'] == age)]
   result = df_filtered2.to_json(orient="records")
   parsed = loads(result)
   # print(f"Country: {country}")
